@@ -1,0 +1,45 @@
+.BarChart {
+    background-color: var(--background);
+    width: 100%;
+    height: calc(100vh * 320/1024);
+    position: relative;
+}
+
+.BarChart header {
+    position: absolute;
+    width: 100%;
+    display: flex;
+    padding: 24px 26px 24px 32px;
+}
+
+.BarChart h2 {
+    font-size: 15px;
+    font-weight: 500;
+    flex:1;
+    line-height: 24px;
+}
+
+.BarChart span {
+    display: inline-block;
+    height: 8px;
+    width: 8px;
+    border-radius: 4px;
+    line-height: 24px;
+    background-color: black;
+    margin: 0 12px 0 32px;
+}
+
+.BarChart p:last-of-type span {
+    background-color: var(--color3);
+}
+
+.BarChart p {
+    font-size: 14px;
+    color: #74798C;
+    line-height: 24px;
+}
+
+.BarChart svg {
+    width: 100%;
+    height: 100%;
+}

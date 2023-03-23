@@ -1,0 +1,9 @@
+.RadarChart {
+    position: relative;
+    background-color: #282d30;
+}
+
+.RadarChart svg {
+    width: 100%;
+    height: 100%;
+}

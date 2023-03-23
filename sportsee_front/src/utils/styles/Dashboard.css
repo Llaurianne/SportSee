@@ -1,0 +1,55 @@
+main {
+  display: inline-block;
+  vertical-align: top;
+  padding: 5.5vh calc(100vw * 90/1440) 8.4vh calc(100vw * 109/1440);
+  width: calc(100vw * 1323/1440)
+}
+
+h1 {
+  height: 5.5vh;
+  font-weight: 500;
+}
+
+h1, h1 span {
+  font-size: calc(100vw *48/1440);
+}
+
+h1 span {
+  color: var(--color2);
+}
+
+main>p {
+  padding-top: 2.3vh;
+  height: 5.7vh;
+  font-size: 18px;
+}
+
+.analytics {
+  display: flex;
+  align-items: stretch;
+  justify-content: space-between;
+  padding-top: 6.5vh;
+  height: calc(66.5vh - 5px)
+}
+
+.charts {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-content: space-between;
+  width: calc(100vw * 835/1440)
+}
+
+.charts div:not(.BarChart) {
+  width: 31%;
+  height: calc(100vh * 263/1024);
+  border-radius: var(--radius);
+}
+
+.key-datas {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: calc(100vw * 258/1440)
+}
+

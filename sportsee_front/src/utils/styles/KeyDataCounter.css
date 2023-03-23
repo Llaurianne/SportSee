@@ -1,0 +1,51 @@
+.KeyDataCounter {
+    height: 20.2%;
+    display : flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-content: flex-start;
+    justify-content: center;
+    background-color: var(--background);
+    border-radius: var(--radius);
+    padding: 12.4%;
+}
+
+.KeyDataCounter img {
+    padding: 10%;
+    border-radius: var(--radius);
+}
+
+.KeyDataCounter p {
+    padding-left : calc(100vw *24/1440);
+    line-height: calc(100vh * 24/1024);
+    max-height: calc(100vh * 24/1024);
+}
+
+.KeyDataCounter p:first-of-type, .KeyDataCounter p span {
+    font-weight: bold;
+    font-size: calc( 100vw * 20/1440);
+    flex: 1;
+}
+.KeyDataCounter p:last-of-type {
+    font-size: calc( 100vw * 14/1440);
+    color: #74798C;
+}
+
+.calorie {
+    background-color: rgba(255, 0, 0, 0.1);
+}
+
+.protein {
+    background-color: rgba(74, 184, 255, 0.1);
+;
+}
+
+.carbohydrate {
+    background-color: rgba(249, 206, 35, 0.1);
+}
+
+.lipid {
+    background-color: rgba(253, 81, 129, 0.1);
+
+}
+

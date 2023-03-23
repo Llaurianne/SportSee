@@ -1,0 +1,23 @@
+.SideBar {
+    float: left;
+    position: relative;
+    background-color: var(--color1);
+    color: white;
+    height: calc(91.6vh - 5px);
+    width: calc(100vw * 117/1440)
+}
+
+.SideBar div {
+    position: absolute;
+    top: 44.37%;
+    left : 50%;
+    transform: translate(-50%, -50%);
+}
+
+.SideBar p {
+    position: absolute;
+    bottom: calc(100vh * 59/1024);
+    transform: rotate(-90deg) translate(50%, -100%);
+    font-size: calc(100vw * 12/1440);
+    width: max-content;
+}

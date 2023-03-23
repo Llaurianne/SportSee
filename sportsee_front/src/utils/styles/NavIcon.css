@@ -1,0 +1,9 @@
+.NavIcon {
+    display: block;
+    background-color: white;
+    max-height: calc(100vw * 64/1440);
+    max-width: calc(100vw * 64/1440);
+    border-radius: var(--radius);
+    padding: calc(100vw * 16/1440);
+    margin: 1.95vh;
+}

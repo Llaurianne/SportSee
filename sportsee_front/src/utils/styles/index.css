@@ -1,0 +1,27 @@
+:root {
+    --color1: #020203;
+    --color2: #ff0000;
+    --color3: #e60000;
+    --background : #fbfbfb;
+    --radius: 5px;
+}
+*, ::before, ::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto', sans-serif;
+    /*font-size: 18px;*/
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+    font-size: inherit;
+    margin-bottom: -5px;
+    transition: all 300ms;
+}
+
+a:hover {
+    color: var(--color2)
+}
