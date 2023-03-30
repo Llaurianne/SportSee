@@ -87,6 +87,65 @@ function BarChart({ data, title }) {
 		svg.append('g').call(yAxis)
 		svg.append('g').call(xAxis)
 
+		// Tooltip
+		function mouseover() {
+			d3.select(this).style('opacity', 0.5)
+			d3.select(this.parentNode).select('.label').style('opacity', 1)
+		}
+
+		function mouseout() {
+			d3.select(this).style('opacity', 0)
+			d3.select(this.parentNode).select('.label').style('opacity', 0)
+		}
+
+		svg.append('g')
+			.selectAll('.tooltip')
+			.data(data)
+			.join((enter) => {
+				let g = enter.append('g')
+				g.attr(
+					'transform',
+					`translate(${
+						margin.left - 0.25 * xScale.bandwidth() + 11
+					}, ${margin.top})`
+				)
+				g.append('rect')
+					.attr('x', (d, i) => xScale(i))
+					.attr('height', h - yScale(yMax) + 1)
+					.attr('width', 0.5 * xScale.bandwidth())
+					.attr('fill', '#c4c4c4')
+					.attr('opacity', 0)
+					.attr('pointer-events', 'fill')
+					.on('mouseover', mouseover)
+					.on('mouseout', mouseout)
+
+				g.append('rect')
+					.attr('x', (d, i) => xScale(i) + 63)
+					.attr('y', -30)
+					.attr('height', 63)
+					.attr('width', 39)
+					.attr('fill', 'var(--color3)')
+					.attr('class', 'label')
+					.style('opacity', 0)
+					.style('transition', 'opacity 300ms')
+				g.append('text')
+					.text((data) => data.kilogram + 'kg')
+					.attr('x', (d, i) => xScale(i) + 82.5)
+					.attr('y', -6)
+					.attr('width', 39)
+					.attr('fill', 'white')
+					.style('font-size', '7px')
+					.style('text-anchor', 'middle')
+				g.append('text')
+					.text((data) => data.calories + 'kcal')
+					.attr('x', (d, i) => xScale(i) + 82.5)
+					.attr('y', 18)
+					.attr('width', 39)
+					.attr('fill', 'white')
+					.style('font-size', '7px')
+					.style('text-anchor', 'middle')
+			})
+
 		// Data
 		svg.append('g')
 			.attr('fill', '#e60000')
@@ -102,6 +161,7 @@ function BarChart({ data, title }) {
 			.attr('width', 7)
 			.attr('rx', 3)
 			.attr('ry', 3)
+			.attr('pointer-events', 'none')
 
 		svg.append('g')
 			.attr('fill', 'black')
@@ -116,6 +176,7 @@ function BarChart({ data, title }) {
 			.attr('width', 7)
 			.attr('rx', 3)
 			.attr('ry', 3)
+			.attr('pointer-events', 'none')
 
 		// Mask
 		svg.select('rect').remove()

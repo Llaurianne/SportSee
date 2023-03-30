@@ -5,10 +5,10 @@
 
 .LineChart h2 {
     position: absolute;
-    font-size: 15px;
+    font-size: calc(100vw * 15/1440);
     font-weight: 500;
-    line-height: 24px;
-    padding: 29px 34px;
+    line-height: calc(100vh * 24/1024);
+    padding: calc(100vh * 29/1024) calc(100vw * 34/1440);
     color: white;
 }
 

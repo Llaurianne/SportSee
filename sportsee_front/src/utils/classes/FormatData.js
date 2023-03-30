@@ -1,3 +1,9 @@
+/**
+ *  Format the API or mocked data correctly before using it.
+ *
+ *  @version 1.1
+ */
+
 import calorie from '../../assets/energy.png'
 import protein from '../../assets/protein.png'
 import carbohydrate from '../../assets/carbohydrate.png'

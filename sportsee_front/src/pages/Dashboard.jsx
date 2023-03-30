@@ -54,7 +54,7 @@ function Dashboard() {
 			loading = true
 		}
 	}
-	console.log(userData)
+
 	return (
 		<div className="Dashboard">
 			{!loading ? (

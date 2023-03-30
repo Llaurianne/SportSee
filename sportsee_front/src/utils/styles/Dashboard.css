@@ -21,7 +21,7 @@ h1 span {
 main>p {
   padding-top: 2.3vh;
   height: 5.7vh;
-  font-size: 18px;
+  font-size: calc(100vw * 18 / 1440);
 }
 
 .analytics {
@@ -40,10 +40,15 @@ main>p {
   width: calc(100vw * 835/1440)
 }
 
+.charts div {
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+
 .charts div:not(.BarChart) {
   width: 31%;
   height: calc(100vh * 263/1024);
-  border-radius: var(--radius);
+
 }
 
 .key-datas {

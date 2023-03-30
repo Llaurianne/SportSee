@@ -13,7 +13,7 @@
 }
 
 .BarChart h2 {
-    font-size: 15px;
+    font-size: calc(100vw * 15/1440);
     font-weight: 500;
     flex:1;
     line-height: 24px;
@@ -21,8 +21,8 @@
 
 .BarChart span {
     display: inline-block;
-    height: 8px;
-    width: 8px;
+    height: calc(100vw * 8/1440);
+    width: calc(100vw * 8/1440);
     border-radius: 4px;
     line-height: 24px;
     background-color: black;
@@ -34,7 +34,7 @@
 }
 
 .BarChart p {
-    font-size: 14px;
+    font-size: calc(100vw * 14/1440);
     color: #74798C;
     line-height: 24px;
 }

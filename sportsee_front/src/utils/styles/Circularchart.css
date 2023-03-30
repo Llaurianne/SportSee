@@ -5,10 +5,10 @@
 
 .CircularChart h2 {
     position: absolute;
-    font-size: 15px;
+    font-size: calc(100vw * 14/1440);
     font-weight: 500;
-    line-height: 24px;
-    padding: 24px 30px;
+    line-height: calc(100vh * 24/1024);
+    padding: calc(100vh * 24/1024) calc(100vw * 30/1440);
 }
 
 .CircularChart svg {
@@ -27,14 +27,15 @@
 .CircularChart span {
     display: block;
     word-wrap: normal;
-    max-width: 95px;
+    max-width: calc(100vw * 95/1440);
     margin: auto;
     color: #74798C;
-    line-height: 26px;
+    line-height: calc(100vh * 26/1024);
+    font-size: 1.1vw
 }
 
 .CircularChart span:first-of-type {
     font-weight: 700;
-    font-size: 26px;
+    font-size: 1.8vw;
     color: black;
 }
