@@ -1,6 +1,7 @@
 import '../utils/styles/BarChart.css'
 import * as d3 from 'd3'
 import { useRef, useEffect } from 'react'
+import PropTypes from 'prop-types'
 
 function BarChart({ data, title }) {
 	const ref = useRef()
@@ -24,13 +25,13 @@ function BarChart({ data, title }) {
 			.range([0, w + w / data.length - 9])
 
 		const yMin = Math.ceil(Math.min(...data.map((d) => d.kilogram)))
-		const yMax = Math.ceil(Math.max(...data.map((d) => d.kilogram)))
+		const yMax = Math.ceil(Math.max(...data.map((d) => d.kilogram))) + 1
 		const yScale = d3
 			.scaleLinear()
 			.domain([yMax, yMin - 1])
 			.range([0, h])
 
-		const yMax2 = Math.ceil(Math.max(...data.map((d) => d.calories)))
+		const yMax2 = Math.ceil(Math.max(...data.map((d) => d.calories))) + 50
 		const yScale2 = d3.scaleLinear().domain([yMax2, 0]).range([0, h])
 
 		// Axes
@@ -205,6 +206,17 @@ function BarChart({ data, title }) {
 			<svg ref={ref} />
 		</div>
 	)
+}
+
+BarChart.propTypes = {
+	data: PropTypes.arrayOf(
+		PropTypes.shape({
+			day: PropTypes.string,
+			kilogram: PropTypes.number,
+			calories: PropTypes.number,
+		})
+	),
+	title: PropTypes.string,
 }
 
 export default BarChart

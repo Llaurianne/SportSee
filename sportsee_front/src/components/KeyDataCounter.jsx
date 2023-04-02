@@ -1,4 +1,5 @@
 import '../utils/styles/KeyDataCounter.css'
+import PropTypes from 'prop-types'
 
 function KeyDataCounter({ type, file, name, qty }) {
 	return (
@@ -8,6 +9,13 @@ function KeyDataCounter({ type, file, name, qty }) {
 			<p>{name}</p>
 		</div>
 	)
+}
+
+KeyDataCounter.propTypes = {
+	type: PropTypes.string,
+	file: PropTypes.node.isRequired,
+	name: PropTypes.string,
+	qty: PropTypes.string,
 }
 
 export default KeyDataCounter

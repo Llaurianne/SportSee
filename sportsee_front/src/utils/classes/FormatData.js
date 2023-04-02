@@ -60,19 +60,19 @@ export default class FormatData {
 				type: 'protein',
 				file: protein,
 				name: 'Protéines',
-				qty: `${this.mainData.keyData.proteinCount}kCal`,
+				qty: `${this.mainData.keyData.proteinCount}g`,
 			},
 			{
 				type: 'carbohydrate',
 				file: carbohydrate,
 				name: 'Glucides',
-				qty: `${this.mainData.keyData.carbohydrateCount}kCal`,
+				qty: `${this.mainData.keyData.carbohydrateCount}g`,
 			},
 			{
 				type: 'lipid',
 				file: lipid,
 				name: 'Lipides',
-				qty: `${this.mainData.keyData.lipidCount}kCal`,
+				qty: `${this.mainData.keyData.lipidCount}g`,
 			},
 		]
 	}

@@ -1,6 +1,8 @@
 import '../utils/styles/Circularchart.css'
 import { useEffect, useRef } from 'react'
 import * as d3 from 'd3'
+import PropTypes from 'prop-types'
+import BarChart from './BarChart'
 
 function CircularChart({ title, data }) {
 	const ref = useRef()
@@ -59,6 +61,11 @@ function CircularChart({ title, data }) {
 			<svg ref={ref} />
 		</div>
 	)
+}
+
+CircularChart.propTypes = {
+	data: PropTypes.number,
+	title: PropTypes.string,
 }
 
 export default CircularChart

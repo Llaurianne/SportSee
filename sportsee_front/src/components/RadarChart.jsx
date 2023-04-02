@@ -1,6 +1,8 @@
 import '../utils/styles/RadarChart.css'
 import * as d3 from 'd3'
 import { useRef, useEffect } from 'react'
+import PropTypes from 'prop-types'
+import BarChart from './BarChart'
 
 function RadarChart({ data }) {
 	const ref = useRef()
@@ -125,6 +127,17 @@ function RadarChart({ data }) {
 			<svg ref={ref} />
 		</div>
 	)
+}
+
+RadarChart.propTypes = {
+	data: PropTypes.shape({
+		Intensité: PropTypes.number,
+		Vitesse: PropTypes.number,
+		Force: PropTypes.number,
+		Endurance: PropTypes.number,
+		Energie: PropTypes.number,
+		Cardio: PropTypes.number,
+	}),
 }
 
 export default RadarChart

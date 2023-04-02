@@ -1,6 +1,8 @@
 import '../utils/styles/LineChart.css'
 import * as d3 from 'd3'
 import { useRef, useEffect } from 'react'
+import PropTypes from 'prop-types'
+import BarChart from './BarChart'
 
 function LineChart({ data, title }) {
 	const ref = useRef()
@@ -175,6 +177,11 @@ function LineChart({ data, title }) {
 			<svg ref={ref} />
 		</div>
 	)
+}
+
+LineChart.propTypes = {
+	data: PropTypes.arrayOf(PropTypes.number),
+	title: PropTypes.string,
 }
 
 export default LineChart

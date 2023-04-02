@@ -78,8 +78,8 @@ function Dashboard() {
 							/>
 							<RadarChart data={userData.getPerformance()} />
 							<CircularChart
-								title="Score"
 								data={userData.getScore()}
+								title="Score"
 							/>
 						</div>
 						<div className="key-datas">
