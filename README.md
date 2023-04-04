@@ -3,10 +3,11 @@
 ![Badge Uses](https://img.shields.io/static/v1?label=Uses&message=CSS3&color=1572B6&style=for-the-badge&logo=css3&logoColor=white)
 ![Badge Library](https://img.shields.io/static/v1?label=Library&message=d3&color=F9A03C&style=for-the-badge&logo=d3.js&logoColor=white)
 
-# ![Logo de SportSee](./sportsee_front/src/assets/sportsee_logo.svg)
+# ![Logo de SportSee](sportsee_front/src/assets/sportsee_logo.svg)
 
 ---
-SportSee is a startup dedicated to sports coaching. The web page is a sports analytics dashboard allowing users to consult their profile and view their training data. 
+SportSee is a startup dedicated to sports coaching. The web page is a sports analytics dashboard allowing users to consult their profile and view their training data.
+
 ## How to run the app locally
 
 ---

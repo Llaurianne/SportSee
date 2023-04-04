@@ -2,8 +2,13 @@ import '../utils/styles/RadarChart.css'
 import * as d3 from 'd3'
 import { useRef, useEffect } from 'react'
 import PropTypes from 'prop-types'
-import BarChart from './BarChart'
 
+/**
+ *  React component displaying the performance indicator radar chart (using D3.js).
+ *	@function
+ *  @param	{Object.<string, number>} data - Object containing the values of each performance indicator.
+ *  @returns {JSX.Element}
+ */
 function RadarChart({ data }) {
 	const ref = useRef()
 	const keys = Object.keys(data)
@@ -65,7 +70,8 @@ function RadarChart({ data }) {
 				return d.y
 			})
 
-		for (let i = 1; i <= steps; i++) {
+		svg.selectAll('path').remove()
+		for (let i = 1; i < steps; i++) {
 			svg.append('path')
 				.attr(
 					'd',

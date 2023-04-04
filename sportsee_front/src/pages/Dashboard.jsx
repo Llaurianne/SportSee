@@ -9,49 +9,63 @@ import mockedData from '../utils/mocks/mockedData'
 import FormatData from '../utils/classes/FormatData'
 import useAPI from '../utils/hooks/useAPI'
 
+/**
+ * React component. User's dashboard page.
+ * @function
+ * @returns {JSX.Element}
+ */
 function Dashboard() {
 	const { userId } = useParams()
-	let APIUserData = {}
-	const APIData = {
-		mainData: useAPI(`http://localhost:3000/user/${userId}`),
-		activity: useAPI(`http://localhost:3000/user/${userId}/activity`),
-		sessions: useAPI(
-			`http://localhost:3000/user/${userId}/average-sessions`
-		),
-		performance: useAPI(`http://localhost:3000/user/${userId}/performance`),
+
+	const endPoints = [
+		`http://localhost:3000/user/${userId}`,
+		`http://localhost:3000/user/${userId}/activity`,
+		`http://localhost:3000/user/${userId}/average-sessions`,
+		`http://localhost:3000/user/${userId}/performance`,
+	]
+
+	// Data to be used by default, from API
+	let userData = new FormatData({
+		mainData: useAPI(endPoints[0]).APIData,
+		activity: useAPI(endPoints[1]).APIData,
+		sessions: useAPI(endPoints[2]).APIData,
+		performance: useAPI(endPoints[3]).APIData,
+	})
+
+	// Error=true if at least one of the API calls fail
+	let error = [
+		useAPI(endPoints[0]).error,
+		useAPI(endPoints[1]).error,
+		useAPI(endPoints[2]).error,
+		useAPI(endPoints[3]).error,
+		useAPI(endPoints[0]).mainData === 'can not find user',
+	].includes(true)
+
+	// Loading=true if at least one of the API calls is loading
+	let loading = [
+		useAPI(endPoints[0]).loading,
+		useAPI(endPoints[1]).loading,
+		useAPI(endPoints[2]).loading,
+		useAPI(endPoints[3]).loading,
+	].includes(true)
+
+	// If error, use of the mocked data
+	if (error) {
+		userData = new FormatData({
+			mainData: findMockedData('USER_MAIN_DATA'),
+			activity: findMockedData('USER_ACTIVITY'),
+			sessions: findMockedData('USER_AVERAGE_SESSIONS'),
+			performance: findMockedData('USER_PERFORMANCE'),
+		})
 	}
 
-	for (let data in APIData) {
-		APIUserData[data] = APIData[data].APIData.data
-	}
+	// Extracts the data (with id or userId) of the user whose id is in the url
 	function findMockedData(data) {
 		if (mockedData[data][0].id) {
 			return mockedData[data].find((d) => d.id === parseFloat(userId))
 		}
 		if (mockedData[data][0].userId) {
 			return mockedData[data].find((d) => d.userId === parseFloat(userId))
-		}
-	}
-	let mockedUserData = {
-		mainData: findMockedData('USER_MAIN_DATA'),
-		activity: findMockedData('USER_ACTIVITY'),
-		sessions: findMockedData('USER_AVERAGE_SESSIONS'),
-		performance: findMockedData('USER_PERFORMANCE'),
-	}
-
-	let loading = false
-	let userData
-	for (let data in APIData) {
-		if (
-			APIData[data].error === true ||
-			APIData.mainData === 'can not find user'
-		) {
-			userData = new FormatData(mockedUserData)
-		} else {
-			userData = new FormatData(APIUserData)
-		}
-		if (APIData[data].loading) {
-			loading = true
 		}
 	}
 
@@ -101,7 +115,3 @@ function Dashboard() {
 }
 
 export default Dashboard
-
-/*
-
- */

@@ -3,6 +3,14 @@ import * as d3 from 'd3'
 import { useRef, useEffect } from 'react'
 import PropTypes from 'prop-types'
 
+/**
+ *  React component displaying the daily activity bar chart (using D3.js).
+ *  @function
+ *  @param	{sessions[]} data - Array of objects containing for each sport session: the date, the user's weight and the number of calories burned.
+ *  @see sessions
+ *  @param {string} title - Chart title.
+ *  @returns {JSX.Element}
+ */
 function BarChart({ data, title }) {
 	const ref = useRef()
 
@@ -31,6 +39,7 @@ function BarChart({ data, title }) {
 			.domain([yMax, yMin - 1])
 			.range([0, h])
 
+		// Second yScale for second mesured value
 		const yMax2 = Math.ceil(Math.max(...data.map((d) => d.calories))) + 50
 		const yScale2 = d3.scaleLinear().domain([yMax2, 0]).range([0, h])
 
@@ -46,7 +55,6 @@ function BarChart({ data, title }) {
 					.tickSize(0)
 					.tickFormat((i) => i + 1)
 			)
-
 			g.selectAll('text')
 				.style('color', '#9b9eac')
 				.style('font-size', '14px')
@@ -57,11 +65,11 @@ function BarChart({ data, title }) {
 			g.select('path').style('display', 'none')
 		}
 
-		let ticksArray = []
-		for (let i = yMin - 1; i <= yMax; i++) {
-			ticksArray.push(i)
-		}
 		function yAxis(g) {
+			let ticksArray = []
+			for (let i = yMin - 1; i <= yMax; i++) {
+				ticksArray.push(i)
+			}
 			g.attr(
 				'transform',
 				`translate(${w + margin.left}, ${margin.top})`
@@ -93,7 +101,6 @@ function BarChart({ data, title }) {
 			d3.select(this).style('opacity', 0.5)
 			d3.select(this.parentNode).select('.label').style('opacity', 1)
 		}
-
 		function mouseout() {
 			d3.select(this).style('opacity', 0)
 			d3.select(this.parentNode).select('.label').style('opacity', 0)
@@ -202,7 +209,6 @@ function BarChart({ data, title }) {
 					Calories brûlées (kCal)
 				</p>
 			</header>
-
 			<svg ref={ref} />
 		</div>
 	)

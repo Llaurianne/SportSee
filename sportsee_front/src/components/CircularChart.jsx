@@ -2,9 +2,15 @@ import '../utils/styles/Circularchart.css'
 import { useEffect, useRef } from 'react'
 import * as d3 from 'd3'
 import PropTypes from 'prop-types'
-import BarChart from './BarChart'
 
-function CircularChart({ title, data }) {
+/**
+ *  React component displaying the daily score circular chart (using D3.js).
+ *	@function
+ *  @param	{number} data - Daily user's score.
+ *  @param {string} title - Chart title.
+ *  @returns {JSX.Element}
+ */
+function CircularChart({ data, title }) {
 	const ref = useRef()
 
 	useEffect(() => {
@@ -19,6 +25,7 @@ function CircularChart({ title, data }) {
 			.attr('height', h)
 			.attr('viewBox', [0, 0, 258, 263])
 
+		svg.selectAll('circle').remove()
 		svg.append('circle')
 			.attr('cx', margin.left + w / 2)
 			.attr('cy', margin.top + h / 2)
@@ -40,6 +47,7 @@ function CircularChart({ title, data }) {
 			.endAngle(scale(data / 100))
 			.cornerRadius(5)
 
+		svg.selectAll('path').remove()
 		svg.append('path')
 			.attr('class', 'arc')
 			.attr('d', arc)
@@ -57,7 +65,6 @@ function CircularChart({ title, data }) {
 				<span>{data}%</span>
 				<span>de votre objectif</span>
 			</p>
-
 			<svg ref={ref} />
 		</div>
 	)

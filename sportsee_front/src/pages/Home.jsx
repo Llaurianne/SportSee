@@ -1,6 +1,11 @@
 import { Link } from 'react-router-dom'
 import '../utils/styles/Home.css'
 
+/**
+ * React component. Home page.
+ * @function
+ * @returns {JSX.Element}
+ */
 function Home() {
 	return (
 		<div className="Home">

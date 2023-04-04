@@ -3,6 +3,11 @@ import { Link } from 'react-router-dom'
 import logo from '../assets/sportsee_logo.svg'
 import '../utils/styles/Header.css'
 
+/**
+ *  React component displaying the website header.
+ *  @function
+ *  @returns {JSX.Element}
+ */
 function Header() {
 	return (
 		<div className="MainHeader">

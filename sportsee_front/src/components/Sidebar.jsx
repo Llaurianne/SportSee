@@ -5,6 +5,11 @@ import bike from '../assets/bike.png'
 import strengthening from '../assets/strengthening.png'
 import '../utils/styles/Sidebar.css'
 
+/**
+ * React component displaying a menu icon.
+ * @function
+ * @returns {JSX.Element}
+ */
 function Sidebar() {
 	return (
 		<div className="SideBar">

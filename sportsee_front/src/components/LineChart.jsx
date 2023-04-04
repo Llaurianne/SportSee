@@ -2,8 +2,14 @@ import '../utils/styles/LineChart.css'
 import * as d3 from 'd3'
 import { useRef, useEffect } from 'react'
 import PropTypes from 'prop-types'
-import BarChart from './BarChart'
 
+/**
+ *  React component displaying the duration of the past week's sports sessions (using D3.js).
+ *	@function
+ *  @param	{Array} data - Array of the duration of each session.
+ *  @param {string} title - Chart title.
+ *  @returns {JSX.Element}
+ */
 function LineChart({ data, title }) {
 	const ref = useRef()
 

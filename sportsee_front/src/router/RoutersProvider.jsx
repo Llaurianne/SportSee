@@ -9,6 +9,11 @@ import Home from '../pages/Home'
 import Dashboard from '../pages/Dashboard'
 import Error from '../pages/Error'
 
+/**
+ * App router
+ * @type {Router}
+ * @returns {JSX.Element}
+ */
 const routesProvider = createBrowserRouter(
 	createRoutesFromElements(
 		<Route path="/" element={<Root />}>
