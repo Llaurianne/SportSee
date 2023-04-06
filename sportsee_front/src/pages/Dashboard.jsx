@@ -17,36 +17,38 @@ import useAPI from '../utils/hooks/useAPI'
 function Dashboard() {
 	const { userId } = useParams()
 
-	const endPoints = [
-		`http://localhost:3000/user/${userId}`,
-		`http://localhost:3000/user/${userId}/activity`,
-		`http://localhost:3000/user/${userId}/average-sessions`,
-		`http://localhost:3000/user/${userId}/performance`,
-	]
+	let APIObjects = {
+		mainData: useAPI(`http://localhost:3000/user/${userId}`),
+		activity: useAPI(`http://localhost:3000/user/${userId}/activity`),
+		sessions: useAPI(
+			`http://localhost:3000/user/${userId}/average-sessions`
+		),
+		performance: useAPI(`http://localhost:3000/user/${userId}/performance`),
+	}
 
 	// Data to be used by default, from API
 	let userData = new FormatData({
-		mainData: useAPI(endPoints[0]).APIData,
-		activity: useAPI(endPoints[1]).APIData,
-		sessions: useAPI(endPoints[2]).APIData,
-		performance: useAPI(endPoints[3]).APIData,
+		mainData: APIObjects.mainData.APIData,
+		activity: APIObjects.activity.APIData,
+		sessions: APIObjects.sessions.APIData,
+		performance: APIObjects.performance.APIData,
 	})
 
 	// Error=true if at least one of the API calls fail
 	let error = [
-		useAPI(endPoints[0]).error,
-		useAPI(endPoints[1]).error,
-		useAPI(endPoints[2]).error,
-		useAPI(endPoints[3]).error,
-		useAPI(endPoints[0]).mainData === 'can not find user',
+		APIObjects.mainData.error,
+		APIObjects.activity.error,
+		APIObjects.sessions.error,
+		APIObjects.performance.error,
+		APIObjects.mainData === 'can not find user',
 	].includes(true)
 
 	// Loading=true if at least one of the API calls is loading
 	let loading = [
-		useAPI(endPoints[0]).loading,
-		useAPI(endPoints[1]).loading,
-		useAPI(endPoints[2]).loading,
-		useAPI(endPoints[3]).loading,
+		APIObjects.mainData.loading,
+		APIObjects.activity.loading,
+		APIObjects.sessions.loading,
+		APIObjects.performance.loading,
 	].includes(true)
 
 	// If error, use of the mocked data
