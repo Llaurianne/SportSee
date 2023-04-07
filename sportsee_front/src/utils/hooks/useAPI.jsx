@@ -12,6 +12,7 @@ function useAPI(url) {
 	const [loading, setLoading] = useState(true)
 
 	useEffect(() => {
+		console.log('UseAPI')
 		async function fetchAPI(url) {
 			setLoading(true)
 			try {

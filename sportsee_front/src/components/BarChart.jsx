@@ -126,7 +126,6 @@ function BarChart({ data, title }) {
 					.attr('pointer-events', 'fill')
 					.on('mouseover', mouseover)
 					.on('mouseout', mouseout)
-
 				g.append('rect')
 					.attr('x', (d, i) => xScale(i) + 63)
 					.attr('y', -30)

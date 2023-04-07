@@ -8,8 +8,4 @@ import './utils/styles/index.css'
  * @type {Root}
  */
 const root = ReactDOM.createRoot(document.getElementById('root'))
-root.render(
-	<React.StrictMode>
-		<RoutesProvider />
-	</React.StrictMode>
-)
+root.render(<RoutesProvider />)

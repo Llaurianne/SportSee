@@ -5,6 +5,7 @@ import LineChart from '../components/LineChart'
 import CircularChart from '../components/CircularChart'
 import RadarChart from '../components/RadarChart'
 import KeyDataCounter from '../components/KeyDataCounter'
+import Message from '../components/Message'
 import mockedData from '../utils/mocks/mockedData'
 import FormatData from '../utils/classes/FormatData'
 import useAPI from '../utils/hooks/useAPI'
@@ -73,6 +74,7 @@ function Dashboard() {
 
 	return (
 		<div className="Dashboard">
+			{error ? <Message /> : null}
 			{!loading ? (
 				<main>
 					<h1>

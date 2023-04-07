@@ -79,3 +79,9 @@ This endpoint displays the user's dashboard with his first name.  His/her data i
 
 
 **Warning, currently only two users have been mocked. They have userId 12 and 18 respectively.**
+
+## Documentation
+
+---
+You can find HTML documentation website here :
+[JSDoc](sportsee_front/docs) .
